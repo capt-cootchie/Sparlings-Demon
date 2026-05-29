@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparling's Demon</title>
+    <style>
+        :root {
+            --bg-color: #f9f9f9;
+            --text-color: #222;
+            --accent-color: #a03c00;
+            --box-bg: #fff;
+            --border-color: #ddd;
+        }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text-color); background-color: var(--bg-color); max-width: 800px; margin: 0 auto; padding: 2rem; }
+        h1, h2, h3 { color: var(--accent-color); }
+        h1 { font-size: 2.5rem; text-align: center; }
+        .subtitle { text-align: center; font-style: italic; color: #666; margin-bottom: 2rem; }
+        .toggle-container { display: flex; justify-content: center; align-items: center; margin-bottom: 3rem; background: var(--box-bg); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); }
+        .toggle-label { font-weight: bold; margin: 0 1rem; cursor: pointer; }
+        .active-label { color: var(--accent-color); }
+        .inactive-label { color: #999; }
+        .switch { position: relative; display: inline-block; width: 60px; height: 34px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--accent-color); }
+        input:checked + .slider:before { transform: translateX(26px); }
+        .content-box { background: var(--box-bg); padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .advanced-text { display: none; }
+    </style>
+</head>
+<body>
+
+    <h1>Sparling's Demon</h1>
+    <div class="subtitle">A Paradox Engine for the Boundary Between Substrate, Definition, and the Real</div>
+
+    <div class="toggle-container">
+        <span id="label-simple" class="toggle-label active-label">Simple Overview</span>
+        <label class="switch">
+            <input type="checkbox" id="modeToggle" onchange="toggleMode()">
+            <span class="slider"></span>
+        </label>
+        <span id="label-advanced" class="toggle-label inactive-label">Advanced Physics</span>
+    </div>
+
+    <div class="content-box">
+        <h2>The Core Idea</h2>
+        <div class="simple-text">
+            <p>Reality is not made of separate things. It is one continuous flow. When we name a "chair" or a "planet," we are drawing an imaginary boundary around a specific swirl in that flow, which we call a whirlpool.</p>
+        </div>
+        <div class="advanced-text">
+            <p>Sparling's Demon posits that the partition of the universe into "observer" and "observed" is a linguistic and thermodynamic transaction. No thing exists independently of definition, but defined structures possess functional reality. The universe does not come pre-divided.</p>
+        </div>
+    </div>
+
+    <div class="content-box">
+        <h2>The Three Layers</h2>
+        <h3>1. The River</h3>
+        <div class="simple-text"><p>The unmapped, hyper-connected ocean of energy. It has no edges.</p></div>
+        <div class="advanced-text"><p>The hyper-dense quantum source at the high-energy UV cutoff. All things are local here. There is no distance, no separation, and no void.</p></div>
+
+        <h3>2. The Pattern</h3>
+        <div class="simple-text"><p>The costly act of drawing a boundary to recognize a specific shape in the flow.</p></div>
+        <div class="advanced-text"><p>The Renormalization flow. The thermodynamic cost of maintaining a boundary against thermal noise requires continuous erasure, enforced by the Landauer bound.</p></div>
+
+        <h3>3. The Whirlpool</h3>
+        <div class="simple-text"><p>The macro-world of chairs and stars. Functionally real, but made of no fixed material.</p></div>
+        <div class="advanced-text"><p>The Infrared (IR) fixed point. An emergent Moiré landscape that acts as a stable shadow projection of the River's underlying complexity.</p></div>
+    </div>
+
+    <div class="content-box">
+        <h2>Historical and Empirical Seams</h2>
+        <div class="simple-text">
+            <p>Spinoza realized this non-dual geometry in 1677. Modern physics sees it in the vacuum structure revealed by the Breit-Wheeler process, where light creates matter, and in the strange fact that we live inside the sun's own atmosphere, the heliosphere, while claiming we see the stars through a vacuum.</p>
+        </div>
+        <div class="advanced-text">
+            <p>Spinoza's geometric ontology is the philosophical ancestor of gauge theory. The Breit-Wheeler process proves the vacuum is a structured Substrate, not a void. Furthermore, the heliosphere contradiction reveals an anthropic condition on measurement: we define universal constants from within a sun-dominated envelope, potentially mistaking local boundary conditions for universal laws.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMode() {
+            const toggle = document.getElementById('modeToggle');
+            const simple = document.querySelectorAll('.simple-text');
+            const advanced = document.querySelectorAll('.advanced-text');
+            const lSimple = document.getElementById('label-simple');
+            const lAdvanced = document.getElementById('label-advanced');
+            
+            if (toggle.checked) {
+                simple.forEach(el => el.style.display = 'none');
+                advanced.forEach(el => el.style.display = 'block');
+                lSimple.classList.replace('active-label', 'inactive-label');
+                lAdvanced.classList.replace('inactive-label', 'active-label');
+            } else {
+                simple.forEach(el => el.style.display = 'block');
+                advanced.forEach(el => el.style.display = 'none');
+                lAdvanced.classList.replace('active-label', 'inactive-label');
+                lSimple.classList.replace('inactive-label', 'active-label');
+            }
+        }
+    </script>
+</body>
+</html>
